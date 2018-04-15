@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>http-basic-playground-service</name>
-    <artifactId>http-basic-playground-service</artifactId>
+    <name>session-based-playground-service</name>
+    <artifactId>session-based-playground-service</artifactId>
     <packaging>jar</packaging>
     <parent>
         <groupId>com.github.jrybak2312.auth.playground</groupId>
@@ -36,5 +36,4 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
 </project>

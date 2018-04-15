@@ -1,7 +1,6 @@
-package com.example.httpbasicplayground.config;
+package com.github.jrybak2312.auth.playground.session.based.playground.service.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 

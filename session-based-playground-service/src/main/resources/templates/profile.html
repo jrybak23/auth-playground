@@ -1,0 +1,23 @@
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<section layout:fragment="navbar-brand">
+    Session Based Authentication Playground
+</section>
+
+<section layout:fragment="page-content">
+    <div class="card col-sm-4 mt-1">
+        <div class="card-body">
+            <h4 class="card-title">Profile:</h4>
+            <p class="card-text">
+                <span class="text-muted">Username:</span> <span class="text-primary">[[${username}]]</span>
+            </p>
+        </div>
+    </div>
+</section>
+</body>
+</html>

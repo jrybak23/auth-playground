@@ -1,4 +1,4 @@
-package com.example.httpbasicplayground;
+package com.github.jrybak2312.auth.playground.http.basic.playground.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
