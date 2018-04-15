@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{template}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<section layout:fragment="page-content">
+    <div class="card col-sm-4 mt-1">
+      <div class="card-body">
+        <h4 class="card-title">Profile:</h4>
+        <p class="card-text">
+          <div><span class="text-muted">Username:</span> <span class="text-primary">[[${username}]]</span></div>
+        </p>
+      </div>
+    </div>
+
+    <p>Restart browser (type <kbd>chrome://restart</kbd>) to logout.</p>
+</section>
+</body>
+</html>
