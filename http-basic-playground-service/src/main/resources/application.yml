@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: http-basic-playground-service
+server:
+  port: 0

@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: session-based-playground-service
+server:
+  port: 0

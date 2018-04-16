@@ -12,6 +12,7 @@
         <module>http-basic-playground-service</module>
         <module>session-based-playground-service</module>
         <module>page-layout</module>
+        <module>service-discovery</module>
     </modules>
 
     <parent>
