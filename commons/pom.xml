@@ -2,15 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <!--<parent>
+    <modelVersion>4.0.0</modelVersion>
+    <name>commons</name>
+    <artifactId>commons</artifactId>
+    <packaging>jar</packaging>
+
+    <parent>
         <artifactId>auth-playground</artifactId>
         <groupId>com.github.jrybak2312.auth.playground</groupId>
         <version>0.0.1-SNAPSHOT</version>
-    </parent>-->
-
-    <modelVersion>4.0.0</modelVersion>
-    <artifactId>page-layout</artifactId>
-    <groupId>com.github.jrybak2312.auth.playground</groupId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    </parent>
 </project>

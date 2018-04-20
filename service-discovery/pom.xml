@@ -6,6 +6,7 @@
     <artifactId>service-discovery</artifactId>
     <packaging>jar</packaging>
     <name>service-discovery</name>
+
     <parent>
         <groupId>com.github.jrybak2312.auth.playground</groupId>
         <artifactId>auth-playground</artifactId>
@@ -18,5 +19,14 @@
             <artifactId>spring-cloud-starter-eureka-server</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

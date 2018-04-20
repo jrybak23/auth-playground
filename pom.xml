@@ -11,7 +11,7 @@
     <modules>
         <module>http-basic-playground-service</module>
         <module>session-based-playground-service</module>
-        <module>page-layout</module>
+        <module>commons</module>
         <module>service-discovery</module>
     </modules>
 
@@ -158,6 +158,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+<!--
             <dependency>
                 <groupId>de.codecentric</groupId>
                 <artifactId>spring-boot-admin-dependencies</artifactId>
@@ -165,17 +166,9 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+-->
         </dependencies>
     </dependencyManagement>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 
 </project>

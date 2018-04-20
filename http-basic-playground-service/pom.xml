@@ -15,7 +15,7 @@
     <dependencies>
         <dependency>
             <groupId>com.github.jrybak2312.auth.playground</groupId>
-            <artifactId>page-layout</artifactId>
+            <artifactId>commons</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
@@ -42,4 +42,12 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
