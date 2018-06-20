@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
@@ -10,7 +11,7 @@
 </section>
 
 <section layout:fragment="page-content">
-    <a href="/profile">
+    <a th:href="@{'/profile'}">
         <button type="button" class="btn btn-primary">Sing in</button>
     </a>
 </section>

@@ -18,7 +18,7 @@ import java.util.Collections;
  * @since 15-Apr-2018
  */
 @Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class  SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
