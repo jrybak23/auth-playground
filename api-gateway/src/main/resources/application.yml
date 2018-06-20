@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: api-gateway
+server:
+  port: 8080
+api-gateway:
+  redirect-services: http-basic-playground-service, session-based-playground-service
+
