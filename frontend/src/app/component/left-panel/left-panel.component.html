@@ -1,0 +1,9 @@
+<div class="card fill">
+  <div class="card-header">
+    <select class="form-control" [ngModel]="selectedService" (ngModelChange)="onServiceChange($event)">
+      <option value="" disabled selected>Choose authentication type</option>
+      <option *ngFor="let s of services" [value]="s.name">{{s.title}}</option>
+    </select>
+  </div>
+  <div class="card-body">Content</div>
+</div>
