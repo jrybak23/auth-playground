@@ -1,0 +1,11 @@
+<div class="card fill">
+  <div class="card-header">
+    <app-navigation-bar></app-navigation-bar>
+  </div>
+  <div class="card-body p-0">
+    <!--(load)="onIframeURLChanged($event)"-->
+<!--    onLoad="alert(this.contentWindow.location);"-->
+    <iframe #mainIframe [src]="serviceURL | safe"  frameborder="0"></iframe>
+  </div>
+</div>
+

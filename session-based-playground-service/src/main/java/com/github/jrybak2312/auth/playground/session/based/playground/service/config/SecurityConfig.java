@@ -24,9 +24,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .headers().frameOptions().disable()
+        .and()
                 .authorizeRequests()
                 .antMatchers("/profile").hasAuthority("VIEW_PROFILE")
-                .antMatchers("/").permitAll()
+                .antMatchers("/", "/rest").permitAll()
         .and()
         .formLogin().loginPage("/").loginProcessingUrl("/login-processing")
                 .defaultSuccessUrl("/profile")
