@@ -19,7 +19,7 @@ import java.io.IOException;
  * @since 23-Jun-2018
  */
 @Component
-@Order(Ordered.HIGHEST_PRECEDENCE)
+@Order(Ordered.HIGHEST_PRECEDENCE) // TODO: 7/4/2018 replace with zuul filter
 public class CorsFilter implements Filter {
 
     @Override

@@ -1,11 +1,10 @@
 <div class="card fill">
   <div class="card-header">
     <app-navigation-bar></app-navigation-bar>
+    <app-request-tabs></app-request-tabs>
   </div>
   <div class="card-body p-0">
-    <!--(load)="onIframeURLChanged($event)"-->
-<!--    onLoad="alert(this.contentWindow.location);"-->
-    <iframe #mainIframe [src]="serviceURL | safe"  frameborder="0"></iframe>
+      <app-response-tabs></app-response-tabs>
   </div>
 </div>
 

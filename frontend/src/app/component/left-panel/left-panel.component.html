@@ -5,5 +5,20 @@
       <option *ngFor="let s of services" [value]="s.name">{{s.title}}</option>
     </select>
   </div>
-  <div class="card-body">Content</div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item">Step 1</li>
+      <li class="list-group-item">Step 2</li>
+      <li class="list-group-item">Step 3</li>
+    </ul>
+
+  </div>
+  <div class="card-footer">
+    <div class="row">
+      <div class="col-sm-12 mt-2">
+        <button class="btn btn-primary">Back</button>
+        <button class="btn btn-primary float-right">Next</button>
+      </div>
+    </div>
+  </div>
 </div>

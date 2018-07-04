@@ -1,5 +1,4 @@
 import {Component, EventEmitter} from '@angular/core';
-import {IframeBrowserService} from "../../service/iframe-browser.service";
 
 @Component({
   selector: 'app-navigation-bar',
@@ -9,11 +8,8 @@ import {IframeBrowserService} from "../../service/iframe-browser.service";
 export class NavigationBarComponent {
   urlChanged: EventEmitter<string>;
 
-  constructor(private iframeBrowserService: IframeBrowserService) {
-    this.urlChanged = iframeBrowserService.urlChanged;
-  }
+  constructor() {}
 
   onInputChanged(val) {
-    this.urlChanged.next(val)
   }
 }

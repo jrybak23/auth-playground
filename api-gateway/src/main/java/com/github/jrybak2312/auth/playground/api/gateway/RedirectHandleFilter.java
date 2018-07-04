@@ -37,9 +37,12 @@ public class RedirectHandleFilter extends ZuulFilter {
 
     @Override
     public boolean shouldFilter() {
+        return false;
+/*
         return getServiceNameFromHeader()
                 .map(serviceName -> gatewayProperties.getRedirectServices().stream().anyMatch(serviceName::equals))
                 .orElse(false);
+*/
     }
 
     @Override

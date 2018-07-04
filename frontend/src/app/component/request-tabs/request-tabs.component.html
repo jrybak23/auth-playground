@@ -1,0 +1,21 @@
+<div class="row mt-1">
+  <div class="col-sm-12">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#request-headers">Headers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#request-body">Body</a>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="request-headers" class="tab-pane active m-0"><br>
+        <app-headers-table></app-headers-table>
+      </div>
+      <div id="request-body" class="tab-pane m-0"><br>
+        <textarea [(ngModel)]="text" cols="30" rows="10" class="form-control"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
