@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {RequestService} from "../../service/request.service";
+import {HeaderInfo} from "../../model/header-info";
 
 @Component({
   selector: 'app-headers-table',
@@ -7,9 +9,21 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HeadersTableComponent implements OnInit {
 
-  constructor() { }
+  headers: Array<HeaderInfo>;
+
+  constructor(public requestService: RequestService) {
+    this.headers = requestService.requestHeaders;
+  }
 
   ngOnInit() {
   }
 
+  onAddHeader() {
+    this.headers.push(new HeaderInfo("", ""));
+  }
+
+  onDeleteHeader(headerInfo: HeaderInfo) {
+    const index = this.headers.indexOf(headerInfo);
+    this.headers.splice(index, 1);
+  }
 }

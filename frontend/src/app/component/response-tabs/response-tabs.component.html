@@ -2,18 +2,36 @@
   <div class="col-sm-12">
     <ul class="nav nav-tabs" role="tablist">
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#reponse-body">Body</a>
+        <a class="nav-link active" data-toggle="tab" href="#reponse-body">Body</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#reponse-headers">Headers</a>
+        <a class="nav-link" data-toggle="tab" href="#reponse-headers">Headers</a>
+      </li>
+      <li class="nav-item ml-auto">
+        <span>{{responseStatus | async}}</span>
       </li>
     </ul>
+
     <div class="tab-content">
-      <div id="reponse-body" class="tab-pane m-0"><br>
-        <p>body</p>
+      <div id="reponse-body" class="tab-pane active m-0"><br>
+        <p>{{responseBody | async}}</p>
       </div>
-      <div id="reponse-headers" class="tab-pane active m-0"><br>
-        <p>headers</p>
+      <div id="reponse-headers" class="tab-pane m-0"><br>
+        <table *ngIf="(responseHeaders | async).length" class="table">
+          <thead>
+          <tr>
+            <th>Key</th>
+            <th>Value</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let header of responseHeaders | async">
+            <td scope="row">{{header.key}}</td>
+            <td>{{header.value}}</td>
+          </tr>
+          </tbody>
+        </table>
+        <span *ngIf="!(responseHeaders | async).length">No headers</span>
       </div>
     </div>
   </div>

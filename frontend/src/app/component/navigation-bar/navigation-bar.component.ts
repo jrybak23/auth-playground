@@ -1,4 +1,6 @@
-import {Component, EventEmitter} from '@angular/core';
+import {Component} from '@angular/core';
+import {RequestService} from "../../service/request.service";
+import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-navigation-bar',
@@ -6,10 +8,23 @@ import {Component, EventEmitter} from '@angular/core';
   styleUrls: ['./navigation-bar.component.css']
 })
 export class NavigationBarComponent {
-  urlChanged: EventEmitter<string>;
+  httpMethod: Subject<string>;
+  url: Subject<string>;
 
-  constructor() {}
+  constructor(private requestService: RequestService) {
+    this.httpMethod = requestService.httpMethod;
+    this.url = requestService.url;
+  }
 
-  onInputChanged(val) {
+  onHttpMethodChanged(methodName) {
+    this.httpMethod.next(methodName);
+  }
+
+  onUrlChanged(newUrl) {
+    this.url.next(newUrl);
+  }
+
+  onSendRequest() {
+    this.requestService.sendRequest();
   }
 }

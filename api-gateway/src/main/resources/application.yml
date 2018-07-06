@@ -7,6 +7,3 @@ zuul:
   routes:
     http-basic-playground-service:
       sensitiveHeaders: Cookie,Set-Cookie
-#api-gateway:
-#  redirect-services: http-basic-playground-service, session-based-playground-service
-

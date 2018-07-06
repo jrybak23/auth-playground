@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table" *ngIf="headers.length">
   <thead>
   <tr>
     <th>Key</th>
@@ -7,12 +7,16 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td scope="row"><input class="form-control" type="text"></td>
-    <td><input class="form-control" type="text"></td>
-    <td> <button class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+  <tr *ngFor="let headerInfo of headers">
+    <td scope="row"><input class="form-control" type="text" [(ngModel)]="headerInfo.key"></td>
+    <td><input class="form-control" type="text" [(ngModel)]="headerInfo.value"></td>
+    <td>
+      <button class="btn btn-danger" (click)="onDeleteHeader(headerInfo)"><i class="fa fa-trash"></i></button>
+    </td>
   </tr>
-  <button class="btn btn-primary ml-3">Add header</button>
   </tbody>
 </table>
+
+<button class="btn btn-primary ml-3 mb-3" (click)="onAddHeader()">Add header</button>
+
 

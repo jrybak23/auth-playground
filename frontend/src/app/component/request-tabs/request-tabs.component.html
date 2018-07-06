@@ -5,7 +5,7 @@
         <a class="nav-link active" data-toggle="tab" href="#request-headers">Headers</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#request-body">Body</a>
+        <a class="nav-link" [class.disabled]="isBodyDisabled" data-toggle="tab" href="#request-body">Body</a>
       </li>
     </ul>
 

@@ -1,0 +1,63 @@
+import {Injectable} from '@angular/core';
+import {BehaviorSubject, Subject} from "rxjs";
+import {HeaderInfo} from "../model/header-info";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class RequestService {
+  httpMethod: BehaviorSubject<string>;
+  url: BehaviorSubject<string>;
+  requestHeaders: Array<HeaderInfo>;
+  responseBody: Subject<string>;
+  responseStatus: Subject<string>;
+  responseHeaders: Subject<Array<HeaderInfo>>;
+
+  constructor(private httpClient: HttpClient) {
+    this.httpMethod = new BehaviorSubject("GET");
+    this.httpMethod.subscribe(value => console.debug("HTTP method changed: " + value));
+    this.url = new BehaviorSubject("");
+    this.url.subscribe(value => console.debug("URL changed:" + value));
+    this.requestHeaders = [];
+    //this.requestHeaders = new BehaviorSubject([]);
+    //this.requestHeaders.subscribe(value => console.debug("Headers:" + JSON.stringify(value)));
+    this.responseBody = new BehaviorSubject("");
+    this.responseStatus = new BehaviorSubject("");
+    this.responseHeaders = new BehaviorSubject([]);
+
+  }
+
+  public sendRequest() {
+    const httpMethod = this.httpMethod.getValue();
+    const url = this.url.getValue();
+
+    const headers = {};
+    for (let header of this.requestHeaders) {
+      headers[header.key] = header.value;
+    }
+
+    this.httpClient.request(httpMethod, url, {observe: 'response', headers: new HttpHeaders(headers)})
+      .subscribe(response => {
+        this.responseBody.next(JSON.stringify(response.body));
+        const status = response.status.toString();
+        this.responseStatus.next(`${status} ${response.statusText}`);
+        this.updateResponseHeaders(response.headers);
+      }, error => {
+        this.responseStatus.next(`${error.status} ${error.statusText}`);
+        this.updateResponseHeaders(error.headers);
+        if (error.status !== 200) {
+          this.responseBody.next("");
+          this.responseHeaders.next([]);
+        } else {
+          this.responseBody.next(error.error.text)
+        }
+      });
+  }
+
+  private updateResponseHeaders(responseHeaders) {
+    const headerInfos = responseHeaders.keys()
+      .map(key => new HeaderInfo(key, responseHeaders.get(key)));
+    this.responseHeaders.next(headerInfos)
+  }
+}

@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {RequestService} from "../../service/request.service";
 
 @Component({
   selector: 'app-request-tabs',
@@ -7,11 +8,16 @@ import {Component, OnInit} from '@angular/core';
 })
 export class RequestTabsComponent implements OnInit {
   text: string;
+  isBodyDisabled: boolean;
 
-  constructor() { }
+  constructor(requestService: RequestService) {
+    requestService.httpMethod.subscribe(value => {
+      this.isBodyDisabled = value === 'GET';
+    });
+  }
 
   ngOnInit() {
-    this.text="{\n" +
+    this.text = "{\n" +
       "  \"array\": [\n" +
       "    1,\n" +
       "    2,\n" +
