@@ -14,7 +14,7 @@
         <app-headers-table></app-headers-table>
       </div>
       <div id="request-body" class="tab-pane m-0"><br>
-        <textarea [(ngModel)]="text" cols="30" rows="10" class="form-control"></textarea>
+        <textarea [ngModel]="requestBody | async" (ngModelChange)="onRequestBodyChanged($event)" cols="30" rows="5" class="form-control"></textarea>
       </div>
     </div>
   </div>

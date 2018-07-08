@@ -1,4 +1,4 @@
-package com.github.jrybak2312.auth.playground.api.gateway;
+package com.github.jrybak2312.auth.playground.session.based.playground.service.config;
 
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -16,10 +16,10 @@ import java.io.IOException;
 
 /**
  * @author Igor Rybak
- * @since 23-Jun-2018
+ * @since 08-Jul-2018
  */
 @Component
-@Order(Ordered.HIGHEST_PRECEDENCE) // TODO: 7/4/2018 replace with zuul filter
+@Order(Ordered.HIGHEST_PRECEDENCE)
 public class CorsFilter implements Filter {
 
     @Override
@@ -34,7 +34,7 @@ public class CorsFilter implements Filter {
         response.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
         response.setHeader("Access-Control-Allow-Methods", "OPTIONS, POST, PUT, GET, DELETE");
         response.setHeader("Access-Control-Max-Age", "3600");
-        response.setHeader("Access-Control-Allow-Headers", "x-requested-with, authorization, origin, content-type, enctype, x-xsrf-token x-frame-options");
+        response.setHeader("Access-Control-Allow-Headers", "x-requested-with, authorization, origin, content-type, enctype, x-xsrf-token, x-frame-options, x-ijt");
         response.setHeader("Access-Control-Allow-Credentials", "true");
 
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {

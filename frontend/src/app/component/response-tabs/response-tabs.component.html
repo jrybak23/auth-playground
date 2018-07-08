@@ -16,6 +16,7 @@
       <div id="reponse-body" class="tab-pane active m-0"><br>
         <p>{{responseBody | async}}</p>
       </div>
+
       <div id="reponse-headers" class="tab-pane m-0"><br>
         <table *ngIf="(responseHeaders | async).length" class="table">
           <thead>

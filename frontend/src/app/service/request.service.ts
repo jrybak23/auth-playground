@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject, Subject} from "rxjs";
 import {HeaderInfo} from "../model/header-info";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {CookieInfo} from "../model/cookie-info";
+import {CookieService} from "ngx-cookie";
 
 @Injectable({
   providedIn: 'root'
@@ -10,22 +12,25 @@ export class RequestService {
   httpMethod: BehaviorSubject<string>;
   url: BehaviorSubject<string>;
   requestHeaders: Array<HeaderInfo>;
+  requestBody: BehaviorSubject<string>;
   responseBody: Subject<string>;
   responseStatus: Subject<string>;
   responseHeaders: Subject<Array<HeaderInfo>>;
+  cookies: Array<CookieInfo>;
 
   constructor(private httpClient: HttpClient) {
     this.httpMethod = new BehaviorSubject("GET");
     this.httpMethod.subscribe(value => console.debug("HTTP method changed: " + value));
     this.url = new BehaviorSubject("");
     this.url.subscribe(value => console.debug("URL changed:" + value));
+    this.requestBody = new BehaviorSubject("");
+    this.requestBody.subscribe(value => console.debug("Request body changed:" + value));
     this.requestHeaders = [];
     //this.requestHeaders = new BehaviorSubject([]);
     //this.requestHeaders.subscribe(value => console.debug("Headers:" + JSON.stringify(value)));
     this.responseBody = new BehaviorSubject("");
     this.responseStatus = new BehaviorSubject("");
     this.responseHeaders = new BehaviorSubject([]);
-
   }
 
   public sendRequest() {
@@ -37,7 +42,17 @@ export class RequestService {
       headers[header.key] = header.value;
     }
 
-    this.httpClient.request(httpMethod, url, {observe: 'response', headers: new HttpHeaders(headers)})
+    let body = undefined;
+    if (this.httpMethod.getValue() !== 'GET') {
+      body = this.requestBody.getValue();
+    }
+
+    this.httpClient.request(httpMethod, url, {
+      body: body,
+      observe: 'response',
+      headers: new HttpHeaders(headers),
+      withCredentials: true
+    })
       .subscribe(response => {
         this.responseBody.next(JSON.stringify(response.body));
         const status = response.status.toString();
