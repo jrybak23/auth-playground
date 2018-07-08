@@ -2,8 +2,6 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject, Subject} from "rxjs";
 import {HeaderInfo} from "../model/header-info";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {CookieInfo} from "../model/cookie-info";
-import {CookieService} from "ngx-cookie";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +14,6 @@ export class RequestService {
   responseBody: Subject<string>;
   responseStatus: Subject<string>;
   responseHeaders: Subject<Array<HeaderInfo>>;
-  cookies: Array<CookieInfo>;
 
   constructor(private httpClient: HttpClient) {
     this.httpMethod = new BehaviorSubject("GET");
