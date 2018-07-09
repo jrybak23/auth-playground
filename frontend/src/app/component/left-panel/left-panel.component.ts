@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {IframeBrowserService} from "../../service/iframe-browser.service";
 
 @Component({
   selector: 'app-left-panel',
@@ -8,22 +7,21 @@ import {IframeBrowserService} from "../../service/iframe-browser.service";
 })
 export class LeftPanelComponent implements OnInit {
   services = [
-    new AuthService("http-basic-playground-service", "HTTP Basic authentication"),
-    new AuthService("session-based-playground-service", "Session Based authentication")
+    new AuthServiceInfo("http-basic-playground-service", "HTTP Basic authentication"),
+    new AuthServiceInfo("session-based-playground-service", "Session Based authentication")
   ];
 
-  constructor(private iframeBrowserService: IframeBrowserService) {
+  constructor() {
   }
 
   onServiceChange(selectedService) {
-    this.iframeBrowserService.navigate(selectedService);
   }
 
   ngOnInit() {
   }
 }
 
-class AuthService {
+class AuthServiceInfo {
   constructor(public name: string, public title: string) {
   }
 }

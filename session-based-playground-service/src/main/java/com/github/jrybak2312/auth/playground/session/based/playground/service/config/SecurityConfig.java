@@ -24,11 +24,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .csrf().disable()
                 .headers().frameOptions().disable()
         .and()
                 .authorizeRequests()
-                .antMatchers("/profile").hasAuthority("VIEW_PROFILE")
-                .antMatchers("/", "/rest").permitAll()
+                .antMatchers("/profile", "/api/me/profile").hasAuthority("VIEW_PROFILE")
+                .antMatchers("/").permitAll()
         .and()
         .formLogin().loginPage("/").loginProcessingUrl("/login-processing")
                 .defaultSuccessUrl("/profile")

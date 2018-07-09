@@ -1,1 +1,15 @@
-<input [ngModel]="urlChanged | async" (ngModelChange)="onInputChanged($event)" type="text" class="form-control">
+<div class="row">
+  <div class="col-sm-2">
+    <select class="form-control" [ngModel]="httpMethod | async" (ngModelChange)="onHttpMethodChanged($event)">
+      <option>GET</option>
+      <option>POST</option>
+    </select>
+  </div>
+  <div class="col-sm-9">
+    <input [ngModel]="url | async" (ngModelChange)="onUrlChanged($event)" type="text" class="form-control">
+  </div>
+  <div class="col-sm-1">
+    <button class="btn btn-primary" (click)="onSendRequest()">Send</button>
+  </div>
+</div>
+
